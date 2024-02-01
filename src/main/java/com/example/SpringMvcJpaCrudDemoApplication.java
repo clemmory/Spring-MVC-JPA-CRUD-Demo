@@ -98,59 +98,74 @@ public class SpringMvcJpaCrudDemoApplication implements CommandLineRunner {
 			.departamento(departamentoService.dameUnDepartamento(3))
 			.build();
 
-		List<Telefono> telefonosEmp1 = new ArrayList<>();
+		empleadoService.persistirEmpleado(emp1);
+		empleadoService.persistirEmpleado(emp2);
+		empleadoService.persistirEmpleado(emp3);
+		empleadoService.persistirEmpleado(emp4);
+
+
+		//List<Telefono> telefonosEmp1 = new ArrayList<>();
 		
 		Telefono telefono1Emp1 = Telefono.builder()
 			.numero("651728873")
+			.empleado(empleadoService.dameUnEmpleado(1))
 			.build();
 		
 		Telefono telefono2Emp1 = Telefono.builder()
 			.numero("651723673")
+			.empleado(empleadoService.dameUnEmpleado(1))
 			.build();
 		
-			telefonosEmp1.add(telefono1Emp1);
-			telefonosEmp1.add(telefono2Emp1);
+			// telefonosEmp1.add(telefono1Emp1);
+			// telefonosEmp1.add(telefono2Emp1);
 
-		List<Telefono> telefonosEmp2 = new ArrayList<>();
+		//List<Telefono> telefonosEmp2 = new ArrayList<>();
 
 		Telefono telefono1Emp2 = Telefono.builder()
 			.numero("652783673")
+			.empleado(empleadoService.dameUnEmpleado(2))
 			.build();
 
 		Telefono telefono2Emp2 = Telefono.builder()
 			.numero("651723684")
+			.empleado(empleadoService.dameUnEmpleado(2))
 			.build();
 
-			telefonosEmp2.add(telefono1Emp2);
-			telefonosEmp2.add(telefono2Emp2);
-		
-		List<Correo> correosEmp1 = new ArrayList<>();
+			//telefonosEmp2.add(telefono1Emp2);
+			//telefonosEmp2.add(telefono2Emp2);
+
+		telefonoService.addPhoneEmployee(telefono1Emp1, 1);
+		telefonoService.addPhoneEmployee(telefono2Emp1, 1);
+		telefonoService.addPhoneEmployee(telefono2Emp2, 2);
+		telefonoService.addPhoneEmployee(telefono1Emp2, 2);
+
+
 		
 			Correo correo1Emp1 = Correo.builder()
 				.correo("clementine.m@gmail.com")
 				.build();
 			
-			Correo correo2Emp1 = Correo.builder()
+			Correo correo1Emp2 = Correo.builder()
 				.correo("joan@gmail.com")
 				.build();
 			
-				correosEmp1.add(correo1Emp1);
-				correosEmp1.add(correo2Emp1);
 		
-		List<Correo> correosEmp2 = new ArrayList<>();
-		
-			Correo correo1Emp2 = Correo.builder()
+			Correo correo1Emp3 = Correo.builder()
 				.correo("rosa@gmail.com")
 				.build();
 			
-			Correo correo2Emp2 = Correo.builder()
+			Correo correo1Emp4 = Correo.builder()
 				.correo("gaby@gmail.com")
 				.build();
-			
-				correosEmp2.add(correo1Emp2);
-				correosEmp2.add(correo2Emp2);
-
 		
+				correoService.addCorreoEmployee(1, correo1Emp1);
+				correoService.addCorreoEmployee(2, correo1Emp2);
+				correoService.addCorreoEmployee(3, correo1Emp3);
+				correoService.addCorreoEmployee(4, correo1Emp4);
+
+
+
+	
 
 
 
