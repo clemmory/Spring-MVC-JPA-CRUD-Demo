@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="https://www.thymeleaf.org"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welcome to the Empleados Website!</h1>
+    <h3>Listado de Empleados</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Primer Apellido</th>
+                <th>Segundo Apellido</th>
+                <th>Fecha de Alta</th>
+                <th>Salario</th>
+                <th>Genero</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each=" empleado : ${empleados}">
+                <td th:text="${empleado.nombre}"></td>
+                <td th:text="${empleado.primerApellido}"></td>
+                <td th:text="${empleado.segundoApellido}"></td>
+                <td th:text="${empleado.fechaAlta}"></td>
+                <td th:text="${empleado.salario}"></td>
+                <td th:text="${empleado.genero}"></td>
+                <!-- <td><a th:href="@{/detalles?id=}+${empleado.id}">DETAILS</a></td> -->
+                <td>
+                    <a th:href="@{/detalles/}+${empleado.id}">DETAILS</a>
+                    <a th:href="@{/actualizar/}+${empleado.id}">EDIT</a>
+                    <a th:href="@{/delete/}+${empleado.id}">BORRAR</a>
+                </td>
+
+            </tr>
+
+
+        </tbody>
+
+
+
+
+    </table>
+    <div>
+        <a th:href="@{/formularioAlta}">Add a new Employee</a>
+    </div>
+</body>
+</html>

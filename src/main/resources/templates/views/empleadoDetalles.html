@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Details of employee:</h1>
+    <h2 th:text=" ${empleado.nombre} +' '+ ${empleado.primerApellido} +' '+ ${empleado.segundoApellido}"></h2>
+    <ul>
+        <!-- <li th:text="'Start date: ' + ${empleado.fechaAlta}"></li>  -->
+        <li th:text="'Salary: ' + ${empleado.salario} + ' Euros'"></li>
+        <li th:text="'Gender: ' + ${empleado.genero}"></li>
+        <!-- <li th:text="'Departamento: '${empleado.departamento}"></li> -->
+    </ul>
+</body>
+</html>

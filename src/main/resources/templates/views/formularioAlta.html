@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Add / Edit an Employee</h1>
+
+    <fieldset style="width:50%;">
+        <legend>Formulario</legend>
+        <form style="display: flex; flex-direction: column; justify-content: space-between;" th:object="${empleado}"
+            th:action="@{/persistirEmpleado}" method="post">
+            <input type="hidden" th:field="*{id}">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" th:field="*{nombre}">
+            <label for="primerApellido">Primer Apellido</label>
+            <input type="text" id="primerApellido" th:field="*{primerApellido}">
+            <label for="segundoApellido">Segundo Apellido</label>
+            <input type="text" id="nombre" th:field="*{segundoApellido}">
+            <label for="fechaAlta">Fecha Alta</label>
+            <input type="date" id="fechaAlta" th:field="*{fechaAlta}">
+            <label for="salario">Salario</label>
+            <input type="text" id="salario" th:field="*{salario}">
+            <fieldset>
+                <legend>Genero</legend>
+                <label for="hombre">Hombre</label>
+                <input type="radio" name="genero" id="hombre" value="HOMBRE" th:field="*{genero}">
+                <label for="mujer">Mujer</label>
+                <input type="radio" name="genero" id="mujer" value="MUJER" th:field="*{genero}">
+                <label for="otro">Otro</label>
+                <input type="radio" name="genero" id="otro" value="OTRO" th:field="*{genero}">
+            </fieldset>
+            <label for="departamento">Departamentos</label>
+            <select name="departamento" id="departamento">
+                <option></option>
+                <option th:each=" departamento : ${departamentos}" th:value="${departamento.id}"
+                    th:text="${departamento.nombre}"
+                    th:selected="${empleado.id != 0 and empleado.departamento.id == departamento.id}"></option>
+            </select>
+            <label>Telefono(s)</label>
+            <input type="text" id="telefonos" name="phoneNumber" placeholder="One or many separated with ;" th:value="${numerosTelefono}">
+            <label>Correo(s)</label>
+            <input type="text" id="correos" name="email" placeholder="One or many separated with ;" th:value="${correos}">
+            <input type="submit" value="Save" style="width:20%">
+        </form>
+    </fieldset>
+
+</body>
+
+</html>
